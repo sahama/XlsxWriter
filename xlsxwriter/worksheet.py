@@ -464,6 +464,7 @@ class Worksheet(xmlwriter.XMLwriter):
         if supported_datetime(token):
             return self._write_datetime(row, col, *args)
 
+        
         # We haven't matched a supported type. Try float.
         try:
             f = float(token)
@@ -471,7 +472,7 @@ class Worksheet(xmlwriter.XMLwriter):
         except ValueError:
             pass
         except TypeError:
-            raise TypeError("Unsupported type %s in write()" % type(token))
+            pass
 
         # Finally try string.
         try:
